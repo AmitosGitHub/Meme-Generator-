@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-content {
+  display: flex;
+}
+
+.main-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.meme-editor {
+  background-color: rgb(193, 179, 179);
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 1500px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.2s;
+}
+
+.meme-editor.open {
+  transform: translateX(0);
+}
