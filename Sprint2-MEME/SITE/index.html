@@ -7,45 +7,89 @@
     <link rel="stylesheet" href="style/main.css" />
     <title>HOME</title>
   </head>
-  <body onload="onInit()">
-    <header>
-      <div class="main-header">
-        <div class="logo-header">
-          LOGO
-          <img src="" alt="logo" />
+  <body onload="onInit()" class="flex align-center">
+    <header class="main-header main-layout flex space-between align-center">
+      
+        <div class="main-header logo-header">
+          <img class="main-header logo-header" src="logo-meme/LOGO.png" alt="logo" />
         </div>
-        <div class="menu-main-header">
-          <ul class="ul-menu-header">
-            <li>Gallery</li>
-            <li>About</li>
+        
+          <ul class="ul-menu-header flex  clean-list margin-list">
+            <li ><a href="#">Gallery</a></li>
+            <li ><a href="#">About</a></li>
           </ul>
-        </div>
-      </div>
+     
     </header>
 
+    <main class="main-content-gallery main-layout">
+
+      <div class="header-content main-layout align-center">
+
+        <ul class="nav-gallery flex space-between clean-list margin-list">
+
+          <li class="nav-search ">
+            <label for="search"></label>
+            <input type="text" id="search" placeholder="Search" />
+              <button onclick="onInputSearch()">Search</button>
+          </li>
+
+          <li class="sort-word">
+            <ul class="sort-word-content flex space-between clean-list margin-list">
+              <li >Funny</li>
+
+              <li >Animal</li>
+
+              <li >Men</li>
+
+              <li >Women</li>
+            </ul>
+          </li>
+
+          <li class="option-func" >
+            <button>More</button>
+          </li>
+
+        </ul>
+        
+      </div>
+    
     <section class="img-gallery">
-      <div class="main-content">
-        <div class="header-content">
-          <input type="text" placeholder="Search" />
-          <button onclick="onInputSearch()">Search</button>
-
-          <ul>
-            <li>Funny</li>
-            <li>Animal</li>
-            <li>Men</li>
-            <li>Women</li>
-          </ul>
-
-          <button>More</button>
-        </div>
-
+      
         <div class="main-gallery"></div>
         </div>
-      </div>
+      
     </section>
+  </main>
 
-    <section class="meme-editor">
+
+    <section class="meme-generator main-layout">
+
+      <div class="meme-editor card-layout">
+
+         <!-- insert input text -->
+         <div class="input-txt">
+          
+        </div>
+
+        <!-- control-btn -->
+        <div class="conrol-btn">
+          
+        </div>
+
+        <!-- file dowanlod -->
+        <div class="file-meme">
+          
+        </div>
+        
+      </div>
        
+      <div class="container-my-canvas">
+
+        <canvas id="meme-canvas" width="500" height="500" onclick="drawShape(event)"
+        >Update your browser to enjoy canvas!</canvas >
+
+      </div>
+
     </section>
 
     <script src="js/services/storage-service.js"></script>
@@ -53,6 +97,7 @@
     <!-- <script src="js/services/gallery-service.js"></script> -->
     <script src="js/services/meme-service.js"></script> 
     <script src="js/editor/editor-service.js"></script> 
+    <script src="js/editor/genrator-controler.js"></script> 
     <script src="js/meme-controller.js"></script>
   </body>
 </html>

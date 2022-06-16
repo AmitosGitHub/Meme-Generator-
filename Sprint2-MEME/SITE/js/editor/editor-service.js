@@ -1,33 +1,59 @@
 "use strict"
 
-function openEditorMeme(meme) {
-  console.log("hi is open editor wite meme", meme)
-  const strHTML = `   
-<div class="container-editor">
-<div class="imgMeme">canvas</div>
+var gCanvas
+var gCtx
+var gCurrShape
+// var gline = [
+//   gMeme.selectedLineIdx = currMeme.id
 
-<div class="contol-editor">
+//   var currLine = +gMeme.selectedLineIdx
+//   gMeme.lines = []
+//   gMeme.lines[currLine] = {
+//     txt: "I sometimes eat Falafel",
+//     size: 20,
+//     align: "center",
+//     color: "red",
+//     lineX: 10,
+//     lineY: 10,
+// ]
+function toBigFont() {
+  let currLine = +gMeme.selectedLineIdx
+  let currDataMeme = gMeme.lines[currLine]
+  let sizeFont = +currDataMeme.size
+  sizeFont += 10
+  //   update model
+  currDataMeme.size = sizeFont
 
-    <div class="input-txt">
-        <input type="text" placeholder="CAN'T GET FIRED">
-    </div>
+  gCtx.font = `${sizeFont}px sans-serif`
+  drawImgOnCanvas(gMeme.selectedImgId)
+  // gCtx.strokeText(currDataMeme.txt, currDataMeme.lineX, currDataMeme.lineY)
+  //   gCtx.fillText(gline[0].txt, gline[0].lineX, gline[0].lineY)
+}
+function toSmallerFont() {
+  console.log("hii smaller", gCtx)
+  let currLine = +gMeme.selectedLineIdx
+  let currDataMeme = gMeme.lines[currLine]
+  let sizeFont = +currDataMeme.size
+  sizeFont -= 10
+  //   update model
+  currDataMeme.size = sizeFont
 
-    <div class="btn-control-top"></div>
+  gCtx.font = `${sizeFont}px sans-serif`
+  drawImgOnCanvas(gMeme.selectedImgId)
+  // gCtx.strokeText(currDataMeme.txt, currDataMeme.lineX, currDataMeme.lineY)
+  //   gCtx.fillText(gline[0].txt, gline[0].lineX, gline[0].lineY)
+}
 
-    <div class="btn-control-main"></div>
+function clearCanvas() {
+  gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+}
+function toChangeColor() {
+  let currLine = +gMeme.selectedLineIdx
+  let currDataMeme = gMeme.lines[currLine]
+  //   update model
+  currDataMeme.color = "red"
 
-    <div class="btn-download">
-        <button onclick="foo()">Share</button>
-        <button onclick="foo()">Download</button>
-    </div>
-</div>
-</div>
-
-
-`
-  const elGEditor = document.querySelector(".meme-editor")
-  elGEditor.classList.add("open")
-
-  console.log("elGEditor ", elGEditor)
-  elGEditor.innerHTML = strHTML
+  gCtx.fillStyle = "red"
+  gCtx.fillText(currDataMeme.txt, currDataMeme.lineX, currDataMeme.lineY)
+  //   gCtx.strokeText(gline[0].txt, gline[0].lineX, gline[0].lineY)
 }

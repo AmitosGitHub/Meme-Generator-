@@ -1,25 +1,166 @@
 * {
   box-sizing: border-box;
 }
+/*var*/
+:root{
+--clr1:#383B42 /* gray-black*/
+--clr2:#2BB67C /* green*/
+--clr3:#F7706C /*red*/
+--clr4:#87898D /*gray*/
+--clr5:#FEFEFE /*white*/
+}
+/*Font-Face*/
 
-body {
-  display: flex;
-  flex-direction: column;
+@font-face {
+  font-family: lato;
+  src: url(font/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: poppins;
+  src: url(font/Poppins-Medium.ttf);
 }
 
-header {
+/*base*/
+
+html{
+font-family:  Arial, Helvetica, sans-serif;
+line-height: 1.25;
+}
+
+body {
+  margin: 0;
+  font-size: 1.3rem;
   display: flex;
+  flex-direction: column;
+  background-color: #F7706C;
+  
+}
+
+a{
+  color:var(--clr5) ;
+  text-decoration: none;
+
+}
+
+/*Layout*/
+
+.main-layout{
+  max-width: 1500px;
+  margin: 0,auto;
+}
+
+/*card-layout*/
+
+.card-layout{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card-layout >*:not(:first-child){
+  flex-basis: 25%;
+}
+
+/*Componets*/
+
+/*main-header*/
+
+.main-header{
+  height: 73px;
+  /* font-family: poppins,sans-serif; */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: var(--clr5);
+}
+.logo-header{
+  width: 90px;
+  height: 36px;
+}
+
+
+
+
+/*HELPERS*/
+
+/*flex helpers*/
+
+
+.flex{
+  display: flex;
+}
+
+.flex.space-between{
   justify-content: space-between;
 }
 
-.main-content {
-  display: flex;
-  flex-direction: column;
+.flex.align-center{
+  align-items: center;
 }
 
+
+/*list-helpers*/
+
+.clean-list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.margin-list{
+  margin-inline: 100px;
+}
+li{
+  margin-inline: 50px;
+}
+
+
+/*qb*/
+
+header {
+  background-color: #2BB67C;
+  width: 98%;
+  border-radius: 10px;
+  
+}
+
+main{
+  background-color: #383B42;
+}
+
+section{
+  background-color: #383B42;
+}
+
+
+/*gallery*/
+
+/*header-content-gallery*/
 .header-content {
   display: flex;
+  margin-bottom: 20px;
+  line-height: 1.25;
 }
+
+.nav-search{
+  border-radius: 20px;
+  background-color: #2c2e32;
+  width: 25%;
+
+}
+
+.sort-word{
+  border-radius: 20px;
+  background-color: #87898D;
+  width: 40%;
+}
+
+.option-func{
+  border-radius: 20px;
+  background-color: #2BB67C;
+  width: 20%;
+}
+
+
+/*main-content-gallery*/
+
 
 .main-gallery {
   display: grid;
@@ -28,11 +169,29 @@ header {
   grid-row-gap: 10px;
 }
 
+.img-card{
+  border: 1px solid black;
+  border-radius: 10px;
+cursor: pointer;
+}
+
+.img-card:hover{
+  outline:2px solid greenyellow ;
+}
+
+
+
+/*genrator*/
+.meme-generator{
+margin-top: 100px;
+/* flex-basis: 50%; */
+}
 .meme-editor {
-  background-color: rgb(193, 179, 179);
+  background-color:  #383B42;
+  border: 1px solid gray;
   padding: 10px;
   position: fixed;
-  top: 0;
+  top: 100px;
   right: 0;
   height: 1500px;
   width: 100vw;
@@ -44,4 +203,18 @@ header {
 
 .meme-editor.open {
   transform: translateX(0);
+}
+
+.btn-Game {
+  width: 30px;
+  height: 30px;
+}
+
+.container-my-canvas {
+  width: 600px;
+  height: 600px;
+  background-color: #383B42;
+}
+canvas {
+  background-color: #2BB67C;
 }

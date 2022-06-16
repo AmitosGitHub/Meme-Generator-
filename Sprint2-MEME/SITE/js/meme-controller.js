@@ -3,17 +3,16 @@
 function onInit() {
   console.log("hi")
   getImgsForDisplay()
-  renderImgMeme()
+  renderImgMemeGallery()
 }
 
-function renderImgMeme() {
+function renderImgMemeGallery() {
   let memeImges = getGImgs()
-  console.log("memeImges ", memeImges)
 
   const strHTMLs = memeImges.map(
     (meme) =>
       `<div 
-        class="item item${meme.id}" onclick="onSelectedMeme(${meme.id})">
+        class="img-card img-card${meme.id}" onclick="onSelectedMeme(${meme.id})">
         <img src="${meme.url}" alt="${meme.id}" class="memeId${meme.id}" />
         </div>
         `
@@ -23,13 +22,12 @@ function renderImgMeme() {
 
   const elGallery = document.querySelector(".main-gallery")
 
-  console.log("strHTML ", strHTML)
   elGallery.innerHTML = strHTML
 }
 
 function onSelectedMeme(memeId) {
-  console.log("hi-meme", memeId)
-  openEditorMeme(memeId)
+  openEditorMeme()
+  drawImgOnCanvas(memeId)
 }
 
 function onInputSearch() {
